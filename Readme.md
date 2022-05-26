@@ -1,4 +1,4 @@
-__________Telegram Meme-Botti___________
+Telegram Meme-Botti
 
 Ominaisuuksia
     - Lähettää meemin komennosta
