@@ -1,12 +1,10 @@
 __________Telegram Meme-Botti___________
-----------------------------------------
 
 Ominaisuuksia
-    -lähettää meemin komennosta
+    - Lähettää meemin komennosta
+    - Lähettää ääni-viestin komennosta
 
 Komennot
     /gibe - lähettää meemin
-
-ToDO:
-    Lisää Niilo tervehdyksiä aamuille ja illoille
-    Kerro vitsi
+    /niilo - listaa ääniviestit
+    /<ääniviestin_nimi> - lähettää ääniviestin
