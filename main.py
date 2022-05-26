@@ -17,7 +17,7 @@ meme_path = os.getenv('MEME_PATH') #path to meme folder (only jpg and png suppor
 niilo_voice_path = os.getenv('NIILO_VOICE_PATH') #(#path to voicelines folder)
 meme_data_path = os.getenv('MEME_DATA_PATH') #path to data of meme indexes / filenames
 
-token = os.getenv('API_KEY_TEST')
+token = os.getenv('API_KEY')
 bot = telebot.TeleBot(token)
 
 
