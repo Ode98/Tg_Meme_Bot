@@ -11,11 +11,11 @@ global meme_start_index
 global meme_data_path
 global niilo_voice_path
 
-meme_start_index = 10000
+meme_start_index = 10000 # TODO: Keksi parempi tapa
 
-meme_path = os.getenv('MEME_PATH') #path to meme folder (only jpg and png supported)
-niilo_voice_path = os.getenv('NIILO_VOICE_PATH') #(#path to voicelines folder)
-meme_data_path = os.getenv('MEME_DATA_PATH') #path to data of meme indexes / filenames
+meme_path = os.getenv('MEME_PATH')  # path to meme folder (only jpg and png supported)
+niilo_voice_path = os.getenv('NIILO_VOICE_PATH')  # (#path to voicelines folder)
+meme_data_path = os.getenv('MEME_DATA_PATH')  # path to data of meme indexes / filenames
 
 token = os.getenv('API_KEY')
 bot = telebot.TeleBot(token)
