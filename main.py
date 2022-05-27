@@ -6,16 +6,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-global meme_path
-global meme_start_index
-global meme_data_path
-global niilo_voice_path
+global MEME_PATH
+global MEME_START_INDEX
+global MEME_DATA_PATH
+global NIILO_VOICE_PATH
 
-meme_start_index = 10000 # TODO: Keksi parempi tapa
+MEME_START_INDEX = 10000 # TODO: Keksi parempi tapa
 
-meme_path = os.getenv('MEME_PATH')  # path to meme folder (only jpg and png supported)
-niilo_voice_path = os.getenv('NIILO_VOICE_PATH')  # (#path to voicelines folder)
-meme_data_path = os.getenv('MEME_DATA_PATH')  # path to data of meme indexes / filenames
+MEME_PATH = os.getenv('MEME_PATH')  # path to meme folder (only jpg and png supported)
+NIILO_VOICE_PATH = os.getenv('NIILO_VOICE_PATH')  # (#path to voicelines folder)
+MEME_DATA_PATH = os.getenv('MEME_DATA_PATH')  # path to data of meme indexes / filenames
 
 token = os.getenv('API_KEY')
 bot = telebot.TeleBot(token)
@@ -41,7 +41,7 @@ def handle_niilo_help(message):
 
 @bot.message_handler(commands=list(lines.keys()))
 def handle_niilo_review(message):
-    voice = open(f'{niilo_voice_path}{lines[message.text[1:]]}' , 'rb')
+    voice = open(f'{NIILO_VOICE_PATH}{lines[message.text[1:]]}' , 'rb')
     bot.send_voice(message.chat.id, voice)
     handle_delete(message)
 
@@ -61,32 +61,31 @@ def send_img(message):
 
 
 def next_meme(message):
-    with open(meme_data_path, 'r') as f:
+    with open(MEME_DATA_PATH, "r+") as f:
         img_id = int(f.read())
-    with open(meme_data_path, 'w') as f:
+        f.seek(0)
         f.write(str(img_id +1))
+        f.truncate()
 
-    location = (f"{meme_path}\{img_id}")
+    location = (f"{MEME_PATH}\{img_id}")
 
     if (check_type(location) != None):
         return(check_type(location))
     else:
         if check_for_memes(img_id):
-            send_img(message)
+            return send_img(message)
         else:
-            send_msg(message, "@Ode lisää meemuja kantaan laiska paska :3")
-            with open(meme_data_path, 'w') as f:
-                f.write(str(meme_start_index))
+            send_msg(message, "Meemut loppu :(")
 
 
 def check_for_memes(img_id):
     for i in range (15):
-        if (check_type(f"{meme_path}\{img_id + i}") != None):
-            return True
+        if (check_type(f"{MEME_PATH}\{img_id + i}") != None):
+            return img_id + 1
     return False
 
 
-def check_type(location):
+def check_type(location):  #Tee fiksummin
     if os.path.exists(location + '.jpg'):
         return(location + '.jpg')
     elif os.path.exists(location + '.png'):
