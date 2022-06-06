@@ -11,11 +11,11 @@ global MEME_START_INDEX
 global MEME_DATA_PATH
 global NIILO_VOICE_PATH
 
-MEME_START_INDEX = 10000 # TODO: Keksi parempi tapa
+MEME_START_INDEX = 10000 # TODO:
 
-MEME_PATH = os.getenv('MEME_PATH')  # path to meme folder (only jpg and png supported)
-NIILO_VOICE_PATH = os.getenv('NIILO_VOICE_PATH')  # (#path to voicelines folder)
-MEME_DATA_PATH = os.getenv('MEME_DATA_PATH')  # path to data of meme indexes / filenames
+MEME_PATH = os.getenv('MEME_PATH')
+NIILO_VOICE_PATH = os.getenv('NIILO_VOICE_PATH')
+MEME_DATA_PATH = os.getenv('MEME_DATA_PATH')
 
 token = os.getenv('API_KEY')
 bot = telebot.TeleBot(token)
@@ -85,7 +85,7 @@ def check_for_memes(img_id):
     return False
 
 
-def check_type(location):  #Tee fiksummin
+def check_type(location):
     if os.path.exists(location + '.jpg'):
         return(location + '.jpg')
     elif os.path.exists(location + '.png'):
