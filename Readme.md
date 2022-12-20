@@ -1,9 +1,9 @@
-Telegram Meemibotti
+# Telegram Meemibotti
 
-Ominaisuuksia
+## Ominaisuuksia
     - Lähettää ääni-viestin komennosta
 
-Komennot
+## Komennot
     /help /start - help
     /niilo - listaa ääniviestit
     /<ääniviestin_nimi> - lähettää ääniviestin
