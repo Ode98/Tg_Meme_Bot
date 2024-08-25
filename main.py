@@ -30,7 +30,7 @@ def handle_niilo_help(message):
 
 @bot.message_handler(commands=list(lines.keys()))
 def handle_niilo_review(message):
-    sound = open(f'./{lines[message.text[1:]]}' , 'rb')
+    sound = open(f'./niilo22/{lines[message.text[1:]]}' , 'rb')
     bot.send_audio(message.chat.id, sound, '', '', f'{message.from_user.first_name}', f'{lines[message.text[1:]]}')
     handle_delete(message)
 
